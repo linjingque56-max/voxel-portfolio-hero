@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>惊鹊 — 夜航体素作品集</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,500&family=Noto+Serif+SC:wght@600;900&family=Manrope:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#EDF1F6;--ink:#1A2340;--mute:#5A6480;--teal:#0E7C7B;--amber:#D98E2B;--on-teal:#F4F7FA;--line:rgba(26,35,64,.16);--hdr:rgba(237,241,246,.92);--blend:multiply;--fa:#C7D4E4;--fb:#AEBDD2;
+--serif:'Fraunces','Noto Serif SC',Georgia,serif;--zh:'Noto Serif SC','Fraunces',serif;--sans:Manrope,system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1424;--ink:#E9EDF7;--mute:#97A0BC;--teal:#3FBDB9;--amber:#F0B45F;--on-teal:#0F1424;--line:rgba(233,237,247,.16);--hdr:rgba(15,20,36,.9);--blend:screen;--fa:#26304D;--fb:#1B2340}}
+:root[data-theme="dark"]{--bg:#0F1424;--ink:#E9EDF7;--mute:#97A0BC;--teal:#3FBDB9;--amber:#F0B45F;--on-teal:#0F1424;--line:rgba(233,237,247,.16);--hdr:rgba(15,20,36,.9);--blend:screen;--fa:#26304D;--fb:#1B2340}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.7 var(--sans);overflow-x:hidden;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hdr);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{max-width:1200px;margin:auto;padding:15px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:900 24px/1 var(--zh);color:var(--ink)}
+.logo b{color:var(--teal)}
+nav{display:flex;gap:30px;font:500 12.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase}
+nav a:hover{color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;font:700 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;border-radius:999px;border:1.5px solid var(--teal);background:var(--teal);color:var(--on-teal);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px var(--teal)}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--ink);box-shadow:none}
+.hero{position:relative;max-width:1200px;margin:auto;padding:52px 26px 36px;display:grid;grid-template-columns:1fr 1.05fr;gap:26px;align-items:center;min-height:calc(100vh - 80px)}
+#glyphs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 6%,#000 66%);mask-image:linear-gradient(90deg,transparent 6%,#000 66%)}
+.halo{position:absolute;inset:0;overflow:hidden;pointer-events:none;mix-blend-mode:var(--blend)}
+.halo i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:drift 28s ease-in-out infinite alternate}
+.halo i:nth-child(1){width:42vw;height:42vw;left:-10vw;top:4%;background:radial-gradient(circle,#0E7C7B 0,transparent 70%)}
+.halo i:nth-child(2){width:34vw;height:34vw;right:-6vw;top:34%;background:radial-gradient(circle,#D98E2B 0,transparent 70%);animation-delay:-9s}
+.halo i:nth-child(3){width:26vw;height:26vw;left:38%;bottom:-12%;background:radial-gradient(circle,#5C7ABA 0,transparent 70%);animation-delay:-17s}
+@keyframes drift{to{transform:translate(4vw,-3vw) scale(1.1)}}
+.copy{position:relative}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--teal);font:500 12px/1 var(--mono);letter-spacing:.3em;text-transform:uppercase}
+.eyebrow::before{content:"";width:56px;height:1.5px;background:var(--teal)}
+h1{margin:28px 0 22px;font-weight:900;line-height:1}
+h1 .zh{display:block;font:900 clamp(88px,13vw,168px)/1 var(--zh);color:var(--teal);letter-spacing:.02em}
+h1 .en{display:block;font:italic 500 clamp(22px,2.8vw,36px)/1 var(--serif);letter-spacing:.42em;margin-top:14px;padding-left:.2em;color:var(--ink)}
+.lede{max-width:44ch;color:var(--mute);font-size:18.5px;margin:0 0 34px}
+.cta{display:flex;flex-wrap:wrap;gap:14px}
+.stage{position:relative;aspect-ratio:1/.95;cursor:pointer;touch-action:pan-y}
+#iso{width:100%;height:100%;display:block}
+.hud{position:absolute;top:0;font:400 10.5px/1.8 var(--mono);letter-spacing:.18em;color:var(--teal);opacity:.6;text-transform:uppercase;pointer-events:none}
+.hud.r{right:0;text-align:right}
+.hint{position:absolute;left:0;bottom:0;font:400 10.5px var(--mono);letter-spacing:.18em;color:var(--mute);text-transform:uppercase}
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:13px 0;background:var(--hdr)}
+.ticker span{display:inline-block;font:500 13px var(--mono);letter-spacing:.28em;text-transform:uppercase;color:var(--mute);animation:mq 26s linear infinite}
+.ticker em{font-style:normal;color:var(--amber);margin:0 1.6em}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{position:relative;max-width:1200px;margin:auto;padding:96px 26px 40px}
+h2{font:600 clamp(36px,4.6vw,60px)/1.1 var(--serif);margin:16px 0 18px;max-width:18ch}
+h2 b{font-weight:600;color:var(--teal)}
+.sub{color:var(--mute);max-width:52ch;margin:0 0 44px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);border-top:2px solid var(--line);padding:34px 30px 30px;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(160deg,color-mix(in srgb,var(--w,#5C7ABA) 10%,transparent),transparent 55%);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-top-color:var(--teal)}
+.card .n{position:absolute;top:16px;right:22px;font:500 15px var(--mono);color:var(--amber);letter-spacing:.1em}
+.card small{font:500 10.5px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.card h3{font:600 30px/1.15 var(--serif);margin:10px 0 10px}
+.card p{margin:0;color:var(--mute);font-size:15px;max-width:38ch}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.steps div{padding:26px 26px 22px;border:1px solid var(--line);border-radius:14px}
+.steps b{font:500 34px/1 var(--serif);color:var(--amber)}
+.steps h3{font:600 23px/1.15 var(--serif);margin:12px 0 8px}
+.steps p{margin:0;color:var(--mute);font-size:15px}
+.end{text-align:center;padding:120px 26px 84px}
+.end h2{margin:18px auto 32px;max-width:16ch}
+footer{max-width:1200px;margin:auto;padding:24px 26px 38px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mute);font:400 11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:880px){nav{display:none}.hero{grid-template-columns:1fr;min-height:0;padding-top:32px}.stage{order:-1}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.hud.r{display:none}section{padding-top:70px}}
+@media (prefers-reduced-motion:reduce){.halo i{animation:none}.ticker span{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header><div class="bar">
+<a class="logo" href="#top" aria-label="惊鹊工作室">惊<b>鹊</b></a>
+<nav><a href="#work">作品</a><a href="#process">方法</a><a href="#contact">联络</a></nav>
+<a class="btn" href="#contact">来聊聊</a>
+</div></header>
+
+<main id="top">
+<div class="hero">
+<canvas id="glyphs" aria-hidden="true"></canvas>
+<div class="halo" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="stage" id="stage" role="img" aria-label="等距体素不断坍塌又重组成拱桥、山峰与宝石的动画">
+<canvas id="iso"></canvas>
+<div class="hud">render: canvas_iso<br>voxels: <span id="vn">0</span></div>
+<div class="hud r">module: bridge→peaks→gem<br>loop: continuous<br>state: <span id="st">bridge</span></div>
+<div class="hint">悬停扰动 · 点击重组</div>
+</div>
+<div class="copy">
+<div class="eyebrow">Night Ferry · Folio 001</div>
+<h1><span class="zh">惊鹊</span><span class="en">JINGQUA STUDIO</span></h1>
+<p class="lede">千百枚小方块，坍塌、散落，再以另一种形态归来。这里收录我在平台开发、动画与交互设计之间来回摆渡的全部作品。</p>
+<div class="cta"><a class="btn" href="#work">看作品 <span aria-hidden="true">→</span></a><a class="btn o" href="#contact">找到我</a></div>
+</div>
+</div>
+
+<div class="ticker" aria-hidden="true"><span>PHANTOM VN<em>◆</em>动画《惊鹊》<em>◆</em>动画《温柔》<em>◆</em>交互设计<em>◆</em>前端工程<em>◆</em>GENERATIVE ART<em>◆</em>PHANTOM VN<em>◆</em>动画《惊鹊》<em>◆</em>动画《温柔》<em>◆</em>交互设计<em>◆</em>前端工程<em>◆</em>GENERATIVE ART<em>◆</em></span></div>
+
+<section id="work">
+<div class="eyebrow">精选作品</div>
+<h2>三条航线，<b>同一场</b>夜航</h2>
+<p class="sub">占位内容，随时替换成你的真实项目、年份与链接。</p>
+<div class="grid">
+<a class="card" href="#contact" style="--w:#0E7C7B"><span class="n">01</span><small>Platform · 2026</small><h3>Phantom VN</h3><p>AI 驱动的轻视觉小说 UGC 平台，三位智能角色与你共写故事。</p></a>
+<a class="card" href="#contact" style="--w:#D98E2B"><span class="n">02</span><small>Animation · 2026</small><h3>《惊鹊》</h3><p>手绘吉卜力基调的动画短片，从 49 秒概念预告走向完整章节。</p></a>
+<a class="card" href="#contact" style="--w:#5C7ABA"><span class="n">03</span><small>Animation · 进行中</small><h3>《温柔》</h3><p>与《惊鹊》同属幻影史诗系列的姊妹篇，关于缓慢与善意。</p></a>
+</div>
+</section>
+
+<section id="process">
+<div class="eyebrow">工作方法</div>
+<h2>拆散，<b>再搭</b>回来</h2>
+<p class="sub">每个项目都遵循与头顶方块相同的循环。</p>
+<div class="steps">
+<div><b>壹</b><h3>观察</h3><p>先看清人、场景与已经在运转的东西，再谈创造。</p></div>
+<div><b>贰</b><h3>坍塌</h3><p>把想法拆到最小、最诚实的颗粒，不留装饰性的空壳。</p></div>
+<div><b>叁</b><h3>重组</h3><p>围绕真正重要的部分重新搭建，发布，然后持续打磨。</p></div>
+</div>
+</section>
+
+<section id="contact" class="end">
+<div class="eyebrow" style="justify-content:center">开始对话</div>
+<h2>一起做点<b>值得</b>的事</h2>
+<a class="btn" href="mailto:hello@example.com">写信给我 <span aria-hidden="true">→</span></a>
+</section>
+</main>
+
+<footer><span>© 2026 惊鹊工作室 · Jingqua</span><span>由 <span id="fn">0</span> 枚方块搭成</span></footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),cv=$('#iso'),cx=cv.getContext('2d'),G=16,H=3.0,M=2.4;
+const PAL={t:[14,124,123],a:[217,142,43],i:[26,35,64],s:[176,189,206],w:[246,249,252],g:[120,128,144]};
+const sh=(a,k)=>a.map(v=>Math.min(255,v*k|0)),FC={};
+for(const k in PAL)FC[k]=[sh(PAL[k],1.06),sh(PAL[k],.7),sh(PAL[k],.88)];
+let sd=11;const rnd=()=>(sd=sd*16807%2147483647)/2147483647;
+/* shape 1: arch bridge with pylons and lamps */
+const BR=[];
+for(let x=1;x<15;x++)for(let y=7;y<9;y++)BR.push([x,y,6,(x==1||x==14)?'a':'s']);
+for(let x=2;x<14;x++){const q=(x-7.5)/6.5,z=Math.max(0,Math.round(5-4.2*Math.cos(q*Math.PI/2)));
+ for(let dz=0;dz<2;dz++)for(let y=7;y<9;y++)BR.push([x,y,z+dz,'i'])}
+for(const px of[1,14]){for(let z=6;z<11;z++)for(let y=6;y<10;y++){if(z<10&&y!=6&&y!=9)continue;BR.push([px,y,z,z==10?'a':'i'])}
+ BR.push([px,7,11,'a'],[px,8,11,'s'])}
+for(let i=0;i<8;i++)BR.push([2+(rnd()*12|0),3+(rnd()*3|0),0,'t']);
+/* shape 2: twin peaks with snow caps */
+const PK=[];
+for(let x=1;x<15;x++)for(let y=1;y<15;y++){let h=0;
+ for(const[cx0,cy0,ph]of[[6,6,9],[11,10,6]])h=Math.max(h,Math.round(ph-Math.hypot(x-cx0,y-cy0)));
+ if(h<1)continue;
+ for(let z=0;z<h;z++){const near=x<9?Math.hypot(x-6,y-6):Math.hypot(x-11,y-10);
+  if(z<h-1&&near<h-1.4)continue;
+  PK.push([x,y,z,h>=8?'w':h>=5?'s':z==h-1?'t':'i'])}}
+/* shape 3: floating gem on pedestal */
+const GM=[];
+for(let x=3;x<13;x++)for(let y=3;y<13;y++)for(let z=4;z<15;z++){
+ const d=Math.abs(x-7.5)+Math.abs(y-7.5)+Math.abs(z-9.5);
+ if(d>5.5||d<4)continue;GM.push([x,y,z,(x+y+z)%3?'t':'a'])}
+for(let x=6;x<10;x++)for(let y=6;y<10;y++)GM.push([x,y,0,'i'],[x,y,1,(x+y)%2?'t':'i']);
+for(let i=0;i<10;i++)GM.push([3+(rnd()*10|0),3+(rnd()*10|0),2+(rnd()*4|0),'a']);
+const S=[BR,PK,GM].map(a=>[...new Map(a.map(v=>[v[0]+','+v[1]+','+v[2],v])).values()]),NM=['bridge','peaks','gem'];
+S.forEach(a=>a.sort((p,q)=>p[2]-q[2]||p[0]+p[1]-q[0]-q[1]));
+const N=Math.max(...S.map(a=>a.length));
+$('#vn').textContent=N;$('#fn').textContent=N.toLocaleString('en');
+const P=[];for(let i=0;i<N;i++)P.push({d:rnd(),c:[1+rnd()*(G-2),1+rnd()*(G-2),rnd()*1.2]});
+const T=(si,i)=>i<S[si].length?S[si][i].concat(1):[(i*5.17+si*3)%14+1,(i*3.71+si*5)%14+1,0,'g',.55];
+const E=t=>t<.5?4*t*t*t:1-(-2*t+2)**3/2,cl=v=>Math.max(0,Math.min(1,v));
+const hx=v=>{v=v.trim().replace('#','');if(v.length==3)v=[...v].map(c=>c+c).join('');return[0,2,4].map(i=>parseInt(v.slice(i,i+2),16))},RD=[217,142,43],LT=[255,228,186];
+let w,h,s,ox,oy,dpr,fa,fb,off=0,stT='',K=0,Kt=0,px=0,py=0,tx=0,ty=0,R=100,now=0;
+function theme(){const c=getComputedStyle(document.documentElement);fa=hx(c.getPropertyValue('--fa'));fb=hx(c.getPropertyValue('--fb'));glyphs()}
+function size(){dpr=Math.min(2,devicePixelRatio||1);w=cv.clientWidth;h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
+ s=Math.min(w*.46/G,h/(G+10.5));ox=w/2;oy=h-G*s/2-8;glyphs()}
+const pt=(x,y,z)=>[ox+(x-y)*s,oy+(x+y-G)*s/2-z*s*1.1];
+function warp(X,Y){if(K<.01)return[X,Y];const dx=X-px,dy=Y-py,d=Math.hypot(dx,dy);if(d>=R||d<1e-3)return[X,Y];
+ const t=d/R,u=R*Math.pow(t,1+.9*K)/d,a=-K*(.6*(1-t)*(1-t)+.05*(1-t)*Math.sin(now*5-d*.04)),c=Math.cos(a),n=Math.sin(a);
+ return[px+(dx*c-dy*n)*u,py+(dx*n+dy*c)*u]}
+function poly(a,col){const q=a.map(p=>pt(p[0],p[1],p[2]));let f=0;
+ if(K>.01){const d=Math.hypot((q[0][0]+q[2][0])/2-px,(q[0][1]+q[2][1])/2-py);if(d<R){const t=1-d/R;f=K*t*t*(3-2*t)}}
+ cx.beginPath();q.forEach((p,i)=>{const r=warp(p[0],p[1]);i?cx.lineTo(r[0],r[1]):cx.moveTo(r[0],r[1])});cx.closePath();
+ cx.fillStyle='rgb('+(f>.003?col.map((v,i)=>v+(LT[i]-v)*f*.7|0):col)+')';cx.fill();cx.stroke()}
+function glow(){if(K<.02)return;const g=cx.createRadialGradient(px,py,0,px,py,R);g.addColorStop(0,'rgba(255,228,186,'+.28*K+')');g.addColorStop(1,'rgba(255,228,186,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,R,0,6.283);cx.fill()}
+function cube(x,y,z,sz,k){const q=sz/2,a=x+.5-q,b=x+.5+q,c=y+.5-q,d=y+.5+q,e=z,f=z+sz,F=FC[k];
+ poly([[a,c,f],[b,c,f],[b,d,f],[a,d,f]],F[0]);poly([[b,c,f],[b,d,f],[b,d,e],[b,c,e]],F[1]);poly([[a,d,f],[b,d,f],[b,d,e],[a,d,e]],F[2])}
+function draw(tm){
+ cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,w,h);now=tm;R=Math.min(w,h)*.07;cx.lineWidth=.6;cx.strokeStyle='rgba(10,14,28,.25)';
+ for(let x=0;x<G;x++)for(let y=0;y<G;y++){const hot=x%4==0&&y%4==0;
+  poly([[x,y,0],[x+1,y,0],[x+1,y+1,0],[x,y+1,0]],hot?RD:((x>>1)+(y>>1))&1?fb:fa)}
+ const cyc=Math.floor(tm/(H+M)),tt=tm%(H+M),si=cyc%3,ni=(si+1)%3,u=tt<H?-1:(tt-H)/M,V=[];
+ for(let i=0;i<N;i++){const a=T(si,i);let x=a[0],y=a[1],z=a[2],k=a[3],sz=a[4];
+  if(u>=0){const b=T(ni,i),p=cl((u-P[i].d*.3)/.7),c=P[i].c;
+   if(p<.5){const e=E(p*2);x+=(c[0]-x)*e;y+=(c[1]-y)*e;z+=(c[2]-z)*e;sz+=(.6-sz)*e}
+   else{const e=E(p*2-1);x=c[0]+(b[0]-c[0])*e;y=c[1]+(b[1]-c[1])*e;z=c[2]+(b[2]-c[2])*e+Math.sin(Math.PI*e)*3;sz=.6+(b[4]-.6)*e;k=b[3]}}
+  V.push([x,y,z,sz,k,x+y+z])}
+ V.sort((p,q)=>p[5]-q[5]);V.forEach(v=>cube(v[0],v[1],v[2],v[3],v[4]));glow();
+ const t=u<0?NM[si]:'reforming';if(t!=stT){stT=t;$('#st').textContent=t}}
+const gc=$('#glyphs'),gx=gc.getContext('2d');
+function glyphs(){const r=gc.parentElement.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);gc.width=r.width*d;gc.height=r.height*d;
+ gx.setTransform(d,0,0,d,0,0);gx.font='15px "JetBrains Mono",monospace';gx.fillStyle=getComputedStyle(document.body).color;gx.globalAlpha=.07;
+ const ch='·—+/\\×◆◇▲▽○※';let q=5;const R=()=>(q=q*16807%2147483647)/2147483647;
+ for(let y=26;y<r.height;y+=40)for(let x=14;x<r.width;x+=40)if(R()<.38)gx.fillText(ch[R()*ch.length|0],x,y)}
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function loop(){K+=(Kt-K)*.14;px+=(tx-px)*.3;py+=(ty-py)*.3;draw(performance.now()/1000+off);requestAnimationFrame(loop)}
+size();theme();addEventListener('resize',()=>{size();rm&&draw(0)});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{theme();rm&&draw(0)});
+const stg=$('#stage');
+function mv(e){const r=cv.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top;if(!Kt){px=tx;py=ty}Kt=1;if(rm){K=1;px=tx;py=ty;draw(0)}}
+function lv(){Kt=0;if(rm){K=0;draw(0)}}
+stg.addEventListener('pointermove',mv);stg.addEventListener('pointerdown',mv);stg.addEventListener('pointerleave',lv);stg.addEventListener('pointercancel',lv);
+stg.addEventListener('pointerup',e=>{if(e.pointerType!='mouse')lv()});
+$('#stage').addEventListener('click',()=>{const tt=(performance.now()/1000+off)%(H+M);if(tt<H)off+=H-tt+.01});
+rm?draw(0):loop();
+})();
+</script>
+</body>
+</html>

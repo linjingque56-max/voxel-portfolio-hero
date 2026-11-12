@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phantom Epic — Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&family=IBM+Plex+Mono&family=Pinyon+Script&display=swap">
+<style>
+:root{--bg:#F5F2E9;--ink:#241B18;--mute:#6B5F58;--red:#B83A26;--on-red:#F5F2E9;--line:rgba(36,27,24,.16);--hdr:rgba(245,242,233,.9);--blend:multiply;--fa:#D2B896;--fb:#A39C92;
+--serif:'Cormorant Garamond','Iowan Old Style',Georgia,serif;--script:'Pinyon Script','Snell Roundhand','Apple Chancery',cursive;--sans:Inter,system-ui,-apple-system,'Segoe UI',sans-serif;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17110F;--ink:#F2EBDD;--mute:#B3A79B;--red:#E0553E;--on-red:#17110F;--line:rgba(242,235,221,.18);--hdr:rgba(23,17,15,.88);--blend:screen;--fa:#6B5646;--fb:#4A4540}}
+:root[data-theme="dark"]{--bg:#17110F;--ink:#F2EBDD;--mute:#B3A79B;--red:#E0553E;--on-red:#17110F;--line:rgba(242,235,221,.18);--hdr:rgba(23,17,15,.88);--blend:screen;--fa:#6B5646;--fb:#4A4540}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 84px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--hdr);z-index:10}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--hdr);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1240px;margin:auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:600 28px/1 var(--serif);letter-spacing:.02em;color:var(--red)}
+.logo b{background:var(--red);color:var(--on-red);padding:0 5px;margin-left:2px;font-weight:600}
+nav{display:flex;gap:34px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+nav a:hover{color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font:500 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;border:2px solid var(--red);background:var(--red);color:var(--on-red);box-shadow:0 10px 24px -10px var(--red);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.o{background:transparent;color:var(--ink);border-color:var(--ink);box-shadow:none}
+.hero{position:relative;max-width:1240px;margin:auto;padding:56px 28px 40px;display:grid;grid-template-columns:1.02fr 1fr;gap:20px;align-items:center;min-height:calc(100vh - 80px)}
+#glyphs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 10%,#000 70%);mask-image:linear-gradient(90deg,transparent 10%,#000 70%)}
+.wash{position:absolute;inset:0;overflow:hidden;pointer-events:none;mix-blend-mode:var(--blend)}
+.wash i{position:absolute;border-radius:50%;filter:url(#bleed);opacity:.5;animation:drift 24s ease-in-out infinite alternate}
+.wash i:nth-child(1){width:46vw;height:46vw;left:-12vw;top:6%;background:radial-gradient(circle,#B83A26 0,transparent 68%)}
+.wash i:nth-child(2){width:38vw;height:38vw;right:-8vw;top:30%;background:radial-gradient(circle,#D2B896 0,transparent 68%);animation-delay:-8s}
+.wash i:nth-child(3){width:30vw;height:30vw;left:34%;bottom:-14%;background:radial-gradient(circle,#8FA08A 0,transparent 68%);animation-delay:-15s}
+@keyframes drift{to{transform:translate(4vw,-3vw) scale(1.12)}}
+.copy{position:relative}
+.eyebrow{display:flex;align-items:center;gap:16px;color:var(--red);font:500 13px/1 var(--sans);letter-spacing:.3em;text-transform:uppercase}
+.eyebrow::before{content:"";width:72px;height:2px;background:var(--red)}
+h1{margin:30px 0 26px;font-weight:500;line-height:.9}
+h1 .sc{display:block;font:400 clamp(84px,12.5vw,176px)/.95 var(--script);color:var(--red);margin-left:-.04em;text-shadow:0 0 28px color-mix(in srgb,var(--red) 38%,transparent)}
+h1 .se{display:block;font:italic 500 clamp(46px,6.2vw,92px)/1 var(--serif);letter-spacing:.32em;margin-top:-.1em;padding-left:.15em}
+.lede{max-width:46ch;color:var(--mute);font-size:19px;margin:0 0 38px}
+.cta{display:flex;flex-wrap:wrap;gap:16px}
+.stage{position:relative;aspect-ratio:1/.95;cursor:pointer;touch-action:pan-y}
+#iso{width:100%;height:100%;display:block}
+.hud{position:absolute;top:0;font:400 11px/1.8 var(--mono);letter-spacing:.2em;color:var(--red);opacity:.55;text-transform:uppercase;pointer-events:none}
+.hud.r{right:0;text-align:right}
+.hint{position:absolute;left:0;bottom:0;font:400 11px var(--mono);letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+section{position:relative;max-width:1240px;margin:auto;padding:110px 28px 40px}
+h2{font:500 clamp(40px,5vw,68px)/1.05 var(--serif);margin:18px 0 20px;max-width:16ch}
+h2 em{font:400 1.25em/.9 var(--script);color:var(--red)}
+.sub{color:var(--mute);max-width:52ch;margin:0 0 52px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.card{position:relative;overflow:hidden;border:1px solid var(--line);padding:38px 36px 34px;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-4px);border-color:var(--red)}
+.card::before{content:"";position:absolute;width:80%;aspect-ratio:1;right:-22%;top:-34%;border-radius:50%;background:radial-gradient(circle,var(--w) 0,transparent 66%);filter:url(#bleed);opacity:.55;mix-blend-mode:var(--blend)}
+.card .n{position:absolute;top:18px;left:32px;font:400 66px/1 var(--script);color:var(--red)}
+.card small{font:400 11px var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
+.card h3{font:500 34px/1.1 var(--serif);margin:8px 0 10px}
+.card p{margin:0;color:var(--mute);font-size:15.5px;max-width:40ch}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--ink)}
+.steps div{padding:26px 24px 10px 0;border-right:1px solid var(--line);padding-left:24px}
+.steps div:first-child{padding-left:0}.steps div:last-child{border:0}
+.steps b{font:400 40px/1 var(--script);color:var(--red)}
+.steps h3{font:500 26px/1.1 var(--serif);margin:8px 0}
+.steps p{margin:0;color:var(--mute);font-size:15px}
+.end{text-align:center;padding:130px 28px 90px}
+.end h2{margin:20px auto 34px;max-width:14ch}
+footer{max-width:1240px;margin:auto;padding:26px 28px 40px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--mute);font:400 12px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+@media (max-width:860px){nav{display:none}.hero{grid-template-columns:1fr;min-height:0;padding-top:36px}.grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.steps div{border:0;padding:22px 16px 10px 0}.hud.r{display:none}section{padding-top:80px}}
+@media (prefers-reduced-motion:reduce){.wash i{animation:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="bleed" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency=".011" numOctaves="3" seed="6"/><feDisplacementMap in="SourceGraphic" scale="70"/><feGaussianBlur stdDeviation="9"/></filter></svg>
+
+<header><div class="bar">
+<a class="logo" href="#top" aria-label="Phantom Epic">PHANTOM<b>EPIC</b></a>
+<nav><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
+<a class="btn" href="#contact">Say hello</a>
+</div></header>
+
+<main id="top">
+<div class="hero">
+<canvas id="glyphs" aria-hidden="true"></canvas>
+<div class="wash" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="copy">
+<div class="eyebrow">Portfolio, Volume One</div>
+<h1><span class="sc">Phantom</span><span class="se">Epic</span></h1>
+<p class="lede">Worlds built from a thousand small cubes. They collapse, scatter and come back as something new. Here is the work I’ve made in design, motion and code.</p>
+<div class="cta"><a class="btn" href="#work">View the work <span aria-hidden="true">→</span></a><a class="btn o" href="#contact">Get in touch</a></div>
+</div>
+<div class="stage" id="stage" role="img" aria-label="Isometric cubes collapsing and reforming into towers, a monogram and a cloud">
+<canvas id="iso"></canvas>
+<div class="hud">Render: canvas_iso<br>Voxels: <span id="vn">0</span></div>
+<div class="hud r">Module: tower→monogram→cloud<br>Loop: continuous<br>State: <span id="st">tower</span></div>
+<div class="hint">Touch to warp · click to collapse</div>
+</div>
+</div>
+
+<section id="work">
+<div class="eyebrow">Selected work</div>
+<h2>Four pieces, <em>one</em> obsession</h2>
+<p class="sub">Placeholder projects. Swap in your own titles, years and links.</p>
+<div class="grid">
+<a class="card" href="#contact" style="--w:#B83A26"><span class="n">i</span><small>Identity · 2026</small><h3>Ink &amp; Voxel</h3><p>A brand system that draws itself from cubes, then dissolves into the page.</p></a>
+<a class="card" href="#contact" style="--w:#D2B896"><span class="n">ii</span><small>Motion · 2025</small><h3>Tidefall</h3><p>A generative study of particles gathering into waves and breaking apart.</p></a>
+<a class="card" href="#contact" style="--w:#8FA08A"><span class="n">iii</span><small>Product · 2025</small><h3>Lantern OS</h3><p>A calm desktop interface for people who work in long, quiet stretches.</p></a>
+<a class="card" href="#contact" style="--w:#9E6B58"><span class="n">iv</span><small>Editorial · 2024</small><h3>Quiet Archive</h3><p>A reading site where every essay unfolds from a single ink bloom.</p></a>
+</div>
+</section>
+
+<section id="process">
+<div class="eyebrow">How I work</div>
+<h2>Break it down, <em>build</em> it back</h2>
+<p class="sub">Every project follows the same loop as the cubes above.</p>
+<div class="steps">
+<div><b>one</b><h3>Observe</h3><p>Study the people, the place and what is already working.</p></div>
+<div><b>two</b><h3>Collapse</h3><p>Strip the idea down to its smallest honest pieces.</p></div>
+<div><b>three</b><h3>Reform</h3><p>Rebuild around what matters, one piece at a time.</p></div>
+<div><b>four</b><h3>Ship</h3><p>Release it, watch it, and keep refining.</p></div>
+</div>
+</section>
+
+<section id="contact" class="end">
+<div class="eyebrow" style="justify-content:center">Begin the conversation</div>
+<h2>Let’s make something <em>epic</em></h2>
+<a class="btn" href="mailto:hello@example.com">Write to me <span aria-hidden="true">→</span></a>
+</section>
+</main>
+
+<footer><span>© 2026 Phantom Epic</span><span>Built from <span id="fn">0</span> cubes</span></footer>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),cv=$('#iso'),cx=cv.getContext('2d'),G=16,H=3.4,M=2.7;
+const PAL={r:[184,58,38],s:[222,112,88],d:[44,32,29],t:[216,188,152],w:[247,244,236],g:[142,136,130]};
+const sh=(a,k)=>a.map(v=>Math.min(255,v*k|0)),FC={};
+for(const k in PAL)FC[k]=[sh(PAL[k],1.06),sh(PAL[k],.7),sh(PAL[k],.88)];
+let sd=7;const rnd=()=>(sd=sd*16807%2147483647)/2147483647;
+function tower(o,x0,y0,w,d,h){for(let z=0;z<h;z++)for(let x=x0;x<x0+w;x++)for(let y=y0;y<y0+d;y++){
+ const e=x==x0||x==x0+w-1||y==y0||y==y0+d-1;if(!e&&z<h-1)continue;let c='d';
+ if(z==h-1)c='g';else if((x==x0+w-1||y==y0+d-1)&&z%2&&(x+y)%2==0)c=z%4==1?'r':'t';o.push([x,y,z,c])}}
+const A=[];tower(A,2,3,4,4,8);tower(A,7,6,4,4,11);tower(A,11,1,4,4,6);A.push([4,5,10,'s'],[9,8,13,'r'],[12,3,8,'s']);
+const L={P:['111','101','111','100','100'],E:['111','100','111','100','111']},B=[];
+[['P',2],['E',9]].forEach(([ch,ox])=>L[ch].forEach((row,r)=>[...row].forEach((v,c)=>{if(v!='1')return;
+ for(let dx=0;dx<2;dx++)for(let dz=0;dz<2;dz++)for(let y=7;y<9;y++)B.push([ox+c*2+dx,y,(4-r)*2+dz,r==0?'s':(c*3+r)%7==0?'d':'r'])})));
+const C=[];for(let x=2;x<14;x++)for(let y=3;y<13;y++)for(let z=9;z<13;z++){
+ const v=((x-8)/6)**2+((y-8)/5)**2+((z-10.5)/2.2)**2+(rnd()-.5)*.35;if(v<1)C.push([x,y,z,rnd()<.07?'t':'w'])}
+for(let x=4;x<12;x++)for(let y=4;y<12;y++)C.push([x,y,0,(x+y)%5?'g':'s']);
+for(let i=0;i<14;i++)C.push([2+(rnd()*12|0),3+(rnd()*10|0),1+(rnd()*7|0),'r']);
+const S=[A,B,C].map(a=>[...new Map(a.map(v=>[v[0]+','+v[1]+','+v[2],v])).values()]),NM=['tower','monogram','cloud'];
+S.forEach(a=>a.sort((p,q)=>p[2]-q[2]||p[0]+p[1]-q[0]-q[1]));
+const N=Math.max(...S.map(a=>a.length));
+$('#vn').textContent=N;$('#fn').textContent=N.toLocaleString('en');
+const P=[];for(let i=0;i<N;i++)P.push({d:rnd(),c:[1+rnd()*(G-2),1+rnd()*(G-2),rnd()*1.2]});
+const T=(si,i)=>i<S[si].length?S[si][i].concat(1):[(i*5.17+si*3)%14+1,(i*3.71+si*5)%14+1,0,'g',.55];
+const E=t=>t<.5?4*t*t*t:1-(-2*t+2)**3/2,cl=v=>Math.max(0,Math.min(1,v));
+const hx=v=>{v=v.trim().replace('#','');if(v.length==3)v=[...v].map(c=>c+c).join('');return[0,2,4].map(i=>parseInt(v.slice(i,i+2),16))},RD=[217,108,86],LT=[226,238,248];
+let w,h,s,ox,oy,dpr,fa,fb,off=0,stT='',K=0,Kt=0,px=0,py=0,tx=0,ty=0,R=100,now=0;
+function theme(){const c=getComputedStyle(document.documentElement);fa=hx(c.getPropertyValue('--fa'));fb=hx(c.getPropertyValue('--fb'));glyphs()}
+function size(){dpr=Math.min(2,devicePixelRatio||1);w=cv.clientWidth;h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;
+ s=Math.min(w*.46/G,h/(G+10.5));ox=w/2;oy=h-G*s/2-8;glyphs()}
+const pt=(x,y,z)=>[ox+(x-y)*s,oy+(x+y-G)*s/2-z*s*1.1];
+function warp(X,Y){if(K<.01)return[X,Y];const dx=X-px,dy=Y-py,d=Math.hypot(dx,dy);if(d>=R||d<1e-3)return[X,Y];
+ const t=d/R,u=R*Math.pow(t,1/(1+.9*K))/d,a=K*(.6*(1-t)*(1-t)+.05*(1-t)*Math.sin(now*5-d*.04)),c=Math.cos(a),n=Math.sin(a);
+ return[px+(dx*c-dy*n)*u,py+(dx*n+dy*c)*u]}
+function poly(a,col){const q=a.map(p=>pt(p[0],p[1],p[2]));let f=0;
+ if(K>.01){const d=Math.hypot((q[0][0]+q[2][0])/2-px,(q[0][1]+q[2][1])/2-py);if(d<R){const t=1-d/R;f=K*t*t*(3-2*t)}}
+ cx.beginPath();q.forEach((p,i)=>{const r=warp(p[0],p[1]);i?cx.lineTo(r[0],r[1]):cx.moveTo(r[0],r[1])});cx.closePath();
+ cx.fillStyle='rgb('+(f>.003?col.map((v,i)=>v+(LT[i]-v)*f*.7|0):col)+')';cx.fill();cx.stroke()}
+function glow(){if(K<.02)return;const g=cx.createRadialGradient(px,py,0,px,py,R);g.addColorStop(0,'rgba(228,240,250,'+.3*K+')');g.addColorStop(1,'rgba(228,240,250,0)');cx.fillStyle=g;cx.beginPath();cx.arc(px,py,R,0,6.283);cx.fill()}
+function cube(x,y,z,sz,k){const q=sz/2,a=x+.5-q,b=x+.5+q,c=y+.5-q,d=y+.5+q,e=z,f=z+sz,F=FC[k];
+ poly([[a,c,f],[b,c,f],[b,d,f],[a,d,f]],F[0]);poly([[b,c,f],[b,d,f],[b,d,e],[b,c,e]],F[1]);poly([[a,d,f],[b,d,f],[b,d,e],[a,d,e]],F[2])}
+function draw(tm){
+ cx.setTransform(dpr,0,0,dpr,0,0);cx.clearRect(0,0,w,h);now=tm;R=Math.min(w,h)*.063;cx.lineWidth=.6;cx.strokeStyle='rgba(0,0,0,.2)';
+ for(let x=0;x<G;x++)for(let y=0;y<G;y++){const red=x%4==0&&y%4==0;
+  poly([[x,y,0],[x+1,y,0],[x+1,y+1,0],[x,y+1,0]],red?RD:((x>>1)+(y>>1))&1?fb:fa)}
+ const cyc=Math.floor(tm/(H+M)),tt=tm%(H+M),si=cyc%3,ni=(si+1)%3,u=tt<H?-1:(tt-H)/M,V=[];
+ for(let i=0;i<N;i++){const a=T(si,i);let x=a[0],y=a[1],z=a[2],k=a[3],sz=a[4];
+  if(u>=0){const b=T(ni,i),p=cl((u-P[i].d*.3)/.7),c=P[i].c;
+   if(p<.5){const e=E(p*2);x+=(c[0]-x)*e;y+=(c[1]-y)*e;z+=(c[2]-z)*e;sz+=(.6-sz)*e}
+   else{const e=E(p*2-1);x=c[0]+(b[0]-c[0])*e;y=c[1]+(b[1]-c[1])*e;z=c[2]+(b[2]-c[2])*e+Math.sin(Math.PI*e)*3;sz=.6+(b[4]-.6)*e;k=b[3]}}
+  V.push([x,y,z,sz,k,x+y+z])}
+ V.sort((p,q)=>p[5]-q[5]);V.forEach(v=>cube(v[0],v[1],v[2],v[3],v[4]));glow();
+ const t=u<0?NM[si]:'reforming';if(t!=stT){stT=t;$('#st').textContent=t}}
+const gc=$('#glyphs'),gx=gc.getContext('2d');
+function glyphs(){const r=gc.parentElement.getBoundingClientRect(),d=Math.min(2,devicePixelRatio||1);gc.width=r.width*d;gc.height=r.height*d;
+ gx.setTransform(d,0,0,d,0,0);gx.font='16px "IBM Plex Mono",monospace';gx.fillStyle=getComputedStyle(document.body).color;gx.globalAlpha=.09;
+ const ch='┌┐└┘├┤┬┴┼─│$#@&%!01*';let q=3;const R=()=>(q=q*16807%2147483647)/2147483647;
+ for(let y=24;y<r.height;y+=36)for(let x=14;x<r.width;x+=36)if(R()<.4)gx.fillText(ch[R()*ch.length|0],x,y)}
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function loop(){K+=(Kt-K)*.14;px+=(tx-px)*.3;py+=(ty-py)*.3;draw(performance.now()/1000+off);requestAnimationFrame(loop)}
+size();theme();addEventListener('resize',()=>{size();rm&&draw(0)});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>{theme();rm&&draw(0)});
+const stg=$('#stage');
+function mv(e){const r=cv.getBoundingClientRect();tx=e.clientX-r.left;ty=e.clientY-r.top;if(!Kt){px=tx;py=ty}Kt=1;if(rm){K=1;px=tx;py=ty;draw(0)}}
+function lv(){Kt=0;if(rm){K=0;draw(0)}}
+stg.addEventListener('pointermove',mv);stg.addEventListener('pointerdown',mv);stg.addEventListener('pointerleave',lv);stg.addEventListener('pointercancel',lv);
+stg.addEventListener('pointerup',e=>{if(e.pointerType!='mouse')lv()});
+$('#stage').addEventListener('click',()=>{const tt=(performance.now()/1000+off)%(H+M);if(tt<H)off+=H-tt+.01});
+rm?draw(0):loop();
+})();
+</script>
+</body>
+</html>
